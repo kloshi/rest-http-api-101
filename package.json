@@ -1,0 +1,24 @@
+{
+  "name": "seraphin_challenge",
+  "version": "1.0.0",
+  "description": "small nodejs HTTP REST API server to compute prices for an insurance",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js",
+    "start:dev": "node server.js 8080"
+  },
+  "dependencies": {
+    "express": "*",
+    "body-parser": "*"
+  },
+  "author": "AG",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  },
+  "directories": {
+    "test": "test"
+  }
+}
