@@ -42,24 +42,39 @@ describe('App', function() {
 
   describe('calculatePremium() tests', function(){
     // test 1
-    it('calculatePremium should return a number', function(){
+    it('calculatePremium should return an object', function(){
       let result = app.calculatePremium("5000,33","01/05/1990");
-      assert.typeOf(result, 'number');
+      assert.typeOf(result, 'object');
     });
     // test 2
-    it('calculatePremium should return 650.01 for (carValue="5000,33", driverBirthdate="01/05/1990")', function(){
+    it('calculatePremium should return "civil": 500 for (carValue="5000,33", driverBirthdate="01/05/1990")', function(){
       let result = app.calculatePremium("5000,33","01/05/1990");
-      assert.equal(result, 650.01);
+      assert.equal(result.civil, 500);
+    });
+    // test 2a
+    it('calculatePremium should return "omnium": 150.01 for (carValue="5000,33", driverBirthdate="01/05/1990")', function(){
+      let result = app.calculatePremium("5000,33","01/05/1990");
+      assert.equal(result.omnium, 150.01);
     });
     // test 3
-    it('calculatePremium should return 1100.03 for (carValue="20000,999", driverBirthdate="11/05/1976")', function(){
+    it('calculatePremium should return "civil": 500 for (carValue="20000,999", driverBirthdate="11/05/1976")', function(){
       let result = app.calculatePremium("20000,999","11/05/1976");
-      assert.equal(result, 1100.03);
+      assert.equal(result.civil, 500);
+    });
+    // test 3a
+    it('calculatePremium should return "omnium": 600.03 for (carValue="20000,999", driverBirthdate="11/05/1976")', function(){
+      let result = app.calculatePremium("20000,999","11/05/1976");
+      assert.equal(result.omnium, 600.03);
     });
     // test 4
-    it('calculatePremium should return 1179.99 for (carValue="5999,50", driverBirthdate="1/01/1999")', function(){
+    it('calculatePremium should return "civil": 1000 for (carValue="5999,50", driverBirthdate="1/01/1999")', function(){
       let result = app.calculatePremium("5999,50","1/01/1999");
-      assert.equal(result, 1179.99);
+      assert.equal(result.civil, 1000);
+    });
+    // test 4a
+    it('calculatePremium should return "omnium": 179.99 for (carValue="5999,50", driverBirthdate="1/01/1999")', function(){
+      let result = app.calculatePremium("5999,50","1/01/1999");
+      assert.equal(result.omnium, 179.99);
     });
   });
 

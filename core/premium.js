@@ -61,7 +61,10 @@ getPremium = function(carValueStr, driverBirthdate) {
   // console.log('calculated civil = ', civil, typeof civil);
   // console.log('calculated omnium = ', omnium, typeof omnium);
   // console.log('calculated premium total = ', (civil + omnium), typeof (civil + omnium));
-  return civil + omnium;
+  return {
+    "civil": civil,
+    "omnium": omnium
+  };
 };
 
 module.exports = {
