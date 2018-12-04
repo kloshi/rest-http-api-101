@@ -40,16 +40,28 @@ describe('App', function() {
     });
   });
 
+  describe('calculatePremium() tests', function(){
+    // test 1
+    it('calculatePremium should return a number', function(){
+      let result = app.calculatePremium("5000,33","01/05/1990");
+      assert.typeOf(result, 'number');
+    });
+    // test 2
+    it('calculatePremium should return 650.01 for (carValue="5000,33", driverBirthdate="01/05/1990")', function(){
+      let result = app.calculatePremium("5000,33","01/05/1990");
+      assert.equal(result, 650.01);
+    });
+    // test 3
+    it('calculatePremium should return 1100.03 for (carValue="20000,999", driverBirthdate="11/05/1976")', function(){
+      let result = app.calculatePremium("20000,999","11/05/1976");
+      assert.equal(result, 1100.03);
+    });
+    // test 4
+    it('calculatePremium should return 1179.99 for (carValue="5999,50", driverBirthdate="1/01/1999")', function(){
+      let result = app.calculatePremium("5999,50","1/01/1999");
+      assert.equal(result, 1179.99);
+    });
+  });
+
 });
 
-
-describe('Math', function() {
-  // test 1
-    it('should return 9 for 3*3', function(){
-      assert.equal(3*3, 9);
-  });
-  // test2
-    it('should return -8 for (3-4)*8', function(){
-      assert.equal((3-4)*8, -8);
-  });
-});
