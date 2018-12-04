@@ -1,32 +1,32 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+// const url = require('url');
+// const querystring = require('querystring');
+
+const premium = require('./core/premium');
+const handlers = require('./core/handlers'); // required here only for mocha tests
+
 const app = express();
 const port = 8080;
 
-const premium = require('./core/premium')
-const routes = require('./core/routes')
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({extended: true}));
 
 // Routes
-app.get('/', routes.handleRoot);
-app.get('/v1/quote/car-insurance', routes.handleQuery);
+app.get('/v1/quote/car-insurance', handlers.handleQuery);
+app.get('/', handlers.handleRoot);
 
 
 // start server
 app.listen(port);
 console.log(`Running the server on port ${port}...`);
 
-
-// tests (some sample functions for use )
+// Tests - export for tests
 module.exports = {
-  sayHello: function(){
-    return 'Hello!';
-  },
+  getPremium,
+  validParams,
   addNumbers: function(a,b){
     return a + b;
-  },
-  calculatePremium: function(carValue, driverBirthdate) {
-    return getPremium(carValue, driverBirthdate);
   }
-};
+}
