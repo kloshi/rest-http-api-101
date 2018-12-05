@@ -17,10 +17,6 @@ const handleOther = (req, res, next) => {
 
 
 const handleQuery = (req, res, next) => {
-  // console.log(req.url, req.params);
-  // console.log('req.query = ', req.query);
-  // console.log('req.param.car_value = ', req.param('car_value'));
-  // console.log('req.param.driver_birthdate = ', req.param('driver_birthdate'));
   let response = {};
 
   const validation = validParams(req); // return object { valid: boolean, carValue, driverBirthday }
@@ -31,7 +27,6 @@ const handleQuery = (req, res, next) => {
       "success": false,
       "message": "parameters missing or incorrect values"
     };
-    // res.statusCode = 400;
     return res.status(400).json(response); //should exit! do I need to use next() as well??
   }
 
