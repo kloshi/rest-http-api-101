@@ -12,10 +12,11 @@ const port = 8080;
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-
-// Routes
-app.get('/v1/quote/car-insurance', handlers.handleQuery);
+// routes
+app.get('/v1/quote/car-insurance', handlers.handleQuery); // accept query params in url
+app.post('/v1/quote/car-insurance', handlers.handleQuery); // accept POST with body params
 app.get('/', handlers.handleRoot);
+app.use('/', handlers.handleOther);
 
 
 // start server

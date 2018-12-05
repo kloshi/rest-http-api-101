@@ -5,7 +5,7 @@ const civilAboveBorderAge = 500;
 const omniumPercent = 0.03;
 
 
-function getAge(driverBirthdate) {
+getAge = function(driverBirthdate) {
   const today = new Date();
   const birthDate = new Date(Date.parse(driverBirthdate));
   const age = today.getFullYear() - birthDate.getFullYear();
@@ -17,7 +17,6 @@ function getAge(driverBirthdate) {
 };
 
 getPremium = function(carValue, driverBirthdate) {
-  // const carValue = parseFloat(carValue.replace(",", "."));
   const driverAge = getAge(driverBirthdate);
   const omnium = Math.round((carValue * omniumPercent) * 1e2 ) / 1e2;
   let eligible = false;
@@ -42,12 +41,6 @@ getPremium = function(carValue, driverBirthdate) {
     "eligible": eligible,
     "premiums": premiums
   };
-
-  // console.log('calculated age = ', driverAge);
-  // console.log('calculated civil = ', civilLiability, typeof civilLiability);
-  // console.log('calculated omnium = ', omnium, typeof omnium);
-  // console.log('eligible = ', eligible);
-  // console.log('data = ', data);
 
   return data;
 };
