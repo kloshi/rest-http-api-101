@@ -4,7 +4,7 @@ const civilBelowBorderAge = 1000;
 const civilAboveBorderAge = 500;
 const omniumPercent = 0.03;
 
-
+// returns driver age (years)
 getAge = function(driverBirthdate) {
   const today = new Date();
   const birthDate = new Date(Date.parse(driverBirthdate));
@@ -16,6 +16,7 @@ getAge = function(driverBirthdate) {
   return age;
 };
 
+// calculates premiums and returns in an object 'data'
 getPremium = function(carValue, driverBirthdate) {
   const driverAge = getAge(driverBirthdate);
   const omnium = Math.round((carValue * omniumPercent) * 1e2 ) / 1e2;

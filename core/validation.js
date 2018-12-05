@@ -1,5 +1,3 @@
-// const express = require('express');
-
 // Validates that the input string is a valid date formatted as "mm/dd/yyyy"
 isValidDate = function(dateString) {
     // First check for the pattern
@@ -13,7 +11,7 @@ isValidDate = function(dateString) {
     var year = parseInt(parts[2], 10);
 
     // Check the ranges of month and year
-    if(year < 1000 || year > 3000 || month == 0 || month > 12)
+    if(year < 1800 || year > 3000 || month == 0 || month > 12)
       return false;
 
     var monthLength = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
@@ -58,7 +56,7 @@ validParams = function(req) {
     return result;
   }
 
-  // driver_birthday: form "DD/MM/YYYY"
+  // driver_birthday: form "dd/mm/yyyy"
   if (!isValidDate(result.driverBirthdate)) {
    result.valid = false;
    return result;

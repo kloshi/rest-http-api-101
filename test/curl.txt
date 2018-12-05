@@ -1,0 +1,9 @@
+// curl tests
+
+
+// GET with query params: OK
+curl -d 'car_value=5000.33&driver_birthdate="11/05/1990"' http://localhost:8080/v1/quote/car-insurance
+
+// POST with body params: OK
+curl -i -X POST -H "Content-Type:application/json" http://localhost:8080/v1/quote/car-insurance -d '{"car_value": 5000.50,"driver_birthdate": "11/05/1976"}'
+

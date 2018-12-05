@@ -5,16 +5,11 @@ const validation = require('./validation');
 
 
 const handleRoot = (req, res, next) => {
-  // const response = '<h1>Please use /v1/quote/car-insurance ...</h1>\
-  // <p>car_value [REQUIRED], number Float, value of the car excl. VAT</p>\
-  // <p>driver_birthdate [REQUIRED], string, of the form "DD/MM/YYYY"</p>';
-  // res.status(200).send(response);
   res.status(200).sendFile(path.join(__dirname, '../', 'views', 'index.html'));
 };
 
 
 const handleOther = (req, res, next) => {
-  // res.status(404).send('<h1>Please use /v1/quote/car-insurance ...</h1>');
   res.status(404).sendFile(path.join(__dirname, '../', 'views', '404.html'));
 };
 
