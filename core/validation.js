@@ -27,39 +27,33 @@ isValidDate = function(dateString) {
   };
 
 
+// check if params are valid (body or query params accepted) and return result object
 validParams = function(req) {
-  // Object.keys(req.query.car_value).length === 0
   let result = {
     valid: true,
     carValue: 0,
     driverBirthdate: ""
   };
 
-  // tests only:
-  const x = !(req.query.car_value == null || req.query.driver_birthdate == null);
-  const y = req.query.car_value != null && req.query.driver_birthdate != null;
-
   // if query params exist
   if (!(req.query.car_value == null || req.query.driver_birthdate == null)) {
-    // assign params to local vars
+    // assign params to result object
     result.carValue = req.query.car_value;
     result.driverBirthdate = req.query.driver_birthdate.replace(/['"]+/g, ''); // remove duplicated quotation marks
   }
   // if body params exist
   if (req.body.car_value != null && req.body.driver_birthdate != null) {
-    // assign params to local vars
+    // assign params to result object
     result.carValue = req.body.car_value;
     result.driverBirthdate = req.body.driver_birthdate.replace(/['"]+/g, ''); // remove duplicated quotation marks;
   }
 
   if (typeof result.carValue !== 'number') {
-    // since we're nice people we'll try parse the value, from a string such as "600,50" to a float 600.50
-    // result.carValue = parseFloat(result.carValue.replace(",", "."));
+    // since we're nice we'll try parse the value, from a string such as "600,50" to a float 600.50
     result.carValue = parseFloat(result.carValue);
   }
 
   if (isNaN(result.carValue)) {
-    // return res.status(400).end('"car_value" must be a valid number');
     result.valid = false;
     return result;
   }
