@@ -57,3 +57,5 @@ tests/test-queries.js contains queries and corresponding correct responses for t
 ```
 $ npm run dev
 ```
+## App logic flow schema
+![login flow schematics]('./API exercise - login flow schematics.png')
