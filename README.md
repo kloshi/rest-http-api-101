@@ -52,6 +52,7 @@ Tests are prepared with the use of [mocha](https://mochajs.org/) and [chai](http
 ```
 $ npm run test
 ```
+tests/test-queries.js contains queries and corresponding correct responses for the tests
 ## Dev mode
 ```
 $ npm run dev
