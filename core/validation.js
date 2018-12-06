@@ -51,7 +51,7 @@ validParams = function(req) {
     result.carValue = parseFloat(result.carValue);
   }
 
-  if (isNaN(result.carValue)) {
+  if (isNaN(result.carValue) || result.carValue <= 0) {
     result.valid = false;
     return result;
   }

@@ -20,14 +20,18 @@ app.use('/', handlers.handleOther);
 
 
 // start server
-app.listen(port);
+const server = app.listen(port);
 console.log(`Running the server on port ${port}...`);
 
+module.exports = server;
+
 // Tests - export for tests
-module.exports = {
-  getPremium,
-  validParams,
-  addNumbers: function(a,b){
-    return a + b;
-  }
-}
+// module.exports = {
+//   getPremium,
+//   validParams,
+//   server
+  // addNumbers: function(a,b){
+  //   return a + b;
+  // }
+// }
+

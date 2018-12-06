@@ -4,29 +4,32 @@ const premium = require('./premium');
 const validation = require('./validation');
 
 
+// handle root url
 const handleRoot = (req, res, next) => {
   res.status(200).sendFile(path.join(__dirname, '../', 'views', 'index.html'));
 };
 
 
+// handle all other urls (404)
 const handleOther = (req, res, next) => {
   res.status(404).sendFile(path.join(__dirname, '../', 'views', '404.html'));
 };
 
 
+// handle query url
 const handleQuery = (req, res, next) => {
   let response = {};
 
-  // return object { valid: boolean, carValue, driverBirthday }
+  // validate params; it returns an object { valid: boolean, carValue, driverBirthday }
   const validation = validParams(req);
 
-  // check if no params or bad params:
+  // send error response if no params or bad params:
   if (!validation.valid) {
     response = {
       "success": false,
       "message": "parameters missing or incorrect values"
     };
-    return res.status(400).json(response); //should exit! do I need to use next() as well??
+    return res.status(400).json(response);
   }
 
   // assign values and call for premium calculation:
@@ -47,12 +50,3 @@ const handleQuery = (req, res, next) => {
 
 
 module.exports = { handleRoot, handleQuery, handleOther };
-
-// module.exports = {
-//   handleRoot: function(req, res) {
-//     return handleRoot(req, res);
-//   },
-//   handleQuery: function(req, res) {
-//     return handleQuery(req, res);
-//   }
-// };
