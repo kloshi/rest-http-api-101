@@ -26,9 +26,9 @@ testQueries.response01 = {
   }
 };
 
-// query 02 if driver >26
-testQueries.query02a = { car_value: "5999.50", driver_birthdate: "1/01/1980" };
-testQueries.query02b = 'car_value=5999.50&driver_birthdate="1/01/1980"';
+// query 02 if driver >=26
+testQueries.query02a = { car_value: "5999.50", driver_birthdate: "1/06/1992" };
+testQueries.query02b = 'car_value=5999.50&driver_birthdate="1/06/1992"';
 // correct json response content:
 testQueries.response02 = {
   "success": true,

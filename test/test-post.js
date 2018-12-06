@@ -73,7 +73,7 @@ describe('App [POST]', function() {
   describe('return correct values [POST]', function(){
 
     // test 01a
-    it(`should return correct values given [POST] ${JSON.stringify(testQueries.query01a)}`, function(done) {
+    it(`should return correct values if age<26 [POST] ${JSON.stringify(testQueries.query01a)}`, function(done) {
       request(app)
       .post(startUrl)
       .set('Accept', 'application/json')
@@ -87,7 +87,7 @@ describe('App [POST]', function() {
     });
 
     // test 02a
-    it(`should return correct values given [POST] ${JSON.stringify(testQueries.query02a)}`, function(done) {
+    it(`should return correct values if age>=26 [POST] ${JSON.stringify(testQueries.query02a)}`, function(done) {
       request(app)
       .post(startUrl)
       .set('Accept', 'application/json')
@@ -101,7 +101,7 @@ describe('App [POST]', function() {
     });
 
     // test 03a
-    it(`should return correct values given [POST] ${JSON.stringify(testQueries.query03a)}`, function(done) {
+    it(`should return correct values if age<18 [POST] ${JSON.stringify(testQueries.query03a)}`, function(done) {
       request(app)
       .post(startUrl)
       .set('Accept', 'application/json')
