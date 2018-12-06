@@ -1,3 +1,5 @@
+// this file contains queries and corresponding correct responses
+// ===========
 
 const testQueries = {};
 

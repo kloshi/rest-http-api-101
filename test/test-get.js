@@ -1,3 +1,6 @@
+// tests for GET using MOCHA:
+// ==========
+
 const request = require('supertest');
 const chai = require('chai');
 const assert = require('chai').assert;
@@ -6,7 +9,6 @@ const testQueries = require('./test-queries');
 const startUrl = '/v1/quote/car-insurance';
 
 
-// tests for GET using MOCHA:
 describe('App [GET]', function() {
 
   // tests for GET with query params

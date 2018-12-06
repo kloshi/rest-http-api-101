@@ -1,3 +1,6 @@
+// tests for POST using MOCHA:
+// ==========
+
 const request = require('supertest');
 const chai = require('chai');
 const assert = require('chai').assert;
@@ -6,7 +9,6 @@ const testQueries = require('./test-queries');
 const startUrl = '/v1/quote/car-insurance';
 
 
-// tests for POST using MOCHA:
 describe('App [POST]', function() {
 
   // tests for POST with body params
