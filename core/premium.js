@@ -1,5 +1,5 @@
 // set insurance details:
-const borderAge = 25;
+const borderAge = 26;
 const civilBelowBorderAge = 1000;
 const civilAboveBorderAge = 500;
 const omniumPercent = 0.03;
@@ -26,7 +26,7 @@ getPremium = function(carValue, driverBirthdate) {
   if (driverAge >= 18) {
     eligible = true;
   }
-  if (driverAge > borderAge) {
+  if (driverAge >= borderAge) {
     civilLiability = civilAboveBorderAge;
   } else {
     civilLiability = civilBelowBorderAge;
