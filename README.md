@@ -18,8 +18,8 @@ driver_birthdate [REQUIRED]; string; Of the form "DD/MM/YYYY"
 ```
 Accepts query parameters (http GET) or body parameters (http POST) in json
 ### curl example
-```/
-/ GET with query params
+```
+// GET with query params
 $ curl -d 'car_value=5000.33&driver_birthdate="11/05/1990"' http://localhost:8080/v1/quote/car-insurance
 ```
 ```
@@ -38,6 +38,15 @@ The product is a simple insurance product with 2 components:
   - Protects the car in case of material damage
   - Not eligible for drivers under 18 years old (excluded)
   - Costs 3% of the value of the car
+
+The above rules for premium calculation can be changed in the following file:
+```
+// in core/premium.js:
+const borderAge = 25;
+const civilBelowBorderAge = 1000;
+const civilAboveBorderAge = 500;
+const omniumPercent = 0.03;
+```
 ## Running the tests
 Tests are prepared with the use of [mocha](https://mochajs.org/) and [chai](https://www.chaijs.com/)
 ```
